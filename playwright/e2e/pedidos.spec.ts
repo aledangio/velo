@@ -12,15 +12,15 @@ test('deve consultar um pedido aprovado', async ({ page }) => {
 
   //Act
   await page.getByRole('textbox', { name: 'Número do Pedido' }).fill('VLO-AZ1H0G')
-  await page.getByTestId('search-order-button').click()
+  await page.getByRole('button', { name: 'Buscar Pedido' }).click()
 
   //Assert
   
-  await expect(page.getByTestId('order-result-id')).toBeVisible({timeout: 10000})
-  await expect(page.getByTestId('order-result-id')).toContainText('VLO-AZ1H0G')
+  await expect(page.getByTestId('order-result-VLO-AZ1H0G')).toBeVisible({timeout: 10000})
+  await expect(page.getByTestId('order-result-VLO-AZ1H0G')).toContainText('VLO-AZ1H0G')
 
-  await expect(page.getByTestId('order-result-status')).toBeVisible()
-  await expect(page.getByTestId('order-result-status')).toContainText('APROVADO')
+  await expect(page.getByTestId('order-result-VLO-AZ1H0G')).toBeVisible()
+  await expect(page.getByTestId('order-result-VLO-AZ1H0G')).toContainText('APROVADO')
 
 })
 
